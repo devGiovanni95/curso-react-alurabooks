@@ -19,7 +19,8 @@ jobs:
 
     - name: Login no Docker Hub
       #run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
-      run: docker login docker.io --username ${{ secrets.DOCKERHUB_USER }} --password ${{ secrets.DOCKERHUB_TOKEN }}
+      run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login docker.io --username ${{ secrets.DOCKERHUB_USER }} --password-stdin
+
 
 
     - name: Push da Imagem Docker
