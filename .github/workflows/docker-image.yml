@@ -18,7 +18,9 @@ jobs:
       run: docker build --file Dockerfile --tag djeu95/allbooks:2.0 .
 
     - name: Login no Docker Hub
-      run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
+      #run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USER }} --password-stdin
+      run: docker login docker.io --username ${{ secrets.DOCKERHUB_USER }} --password ${{ secrets.DOCKERHUB_TOKEN }}
+
 
     - name: Push da Imagem Docker
       run: docker push djeu95/allbooks:2.0
